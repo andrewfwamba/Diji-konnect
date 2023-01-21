@@ -33,11 +33,11 @@ const routes = (app) => {
     )
     .post(isAuth, newContract);
 
-  app.route("/bookedcontracts").get(isAuth, getClientBooked);
-  app.route('/mycontracts').post(isAuth, myContracts)
+  app.route("api/v1/bookedcontracts").get(isAuth, getClientBooked);
+  app.route("api/v1/mycontracts").post(isAuth, myContracts);
 
   app
-    .route("/contract/:contractID")
+    .route("api/v1/contract/:contractID")
     .get(isAuth, getContractWithID)
     .put(isAuth, updateContract)
     .delete(isAuth, deleteContract);

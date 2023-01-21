@@ -6,7 +6,7 @@ const Joi = require("joi");
 const express = require("express");
 const router = express.Router();
 
-router.post("/api/resetpassword", async (req, res) => {
+router.post("/api/v1/resetpassword", async (req, res) => {
   try {
     const schema = Joi.object({ email: Joi.string().email().required() });
     const { error } = schema.validate(req.body);

@@ -29,12 +29,17 @@ const fileFilter = (req, file, cb) => {
 
 const uploads = multer({ storage, fileFilter });
 
-router.post("/create-user", validateUserSignUp, userValidation, createUser);
-router.post("/sign-in", validateUserSignIn, userValidation, userSignIn);
-router.get("/sign-out", isAuth, signOut);
-router.get("/get-users", getUsers);
 router.post(
-  "/upload-profile",
+  "api/v1/create-user",
+  validateUserSignUp,
+  userValidation,
+  createUser
+);
+router.post("api/v1/sign-in", validateUserSignIn, userValidation, userSignIn);
+router.get("api/v1/sign-out", isAuth, signOut);
+router.get("api/v1/get-users", getUsers);
+router.post(
+  "api/v1/upload-profile",
   isAuth,
   uploads.single("profile"),
   uploadProfile
